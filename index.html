@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>CMS API Sample: Audio Content Report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/source-code-pro" type="text/css"/>
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <section class="bcls-section" id="workingSample">
+  <h2>Audio content report generator</h2>
+  <p>You can view the results as:</p>
+  <ul>
+    <li><a href="#csvDisplay">CSV data</a></li>
+    <li><a href="#tableDisplay">Table</a></li>
+  </ul>
+
+  <fieldset class="bcls-fieldset">
+    <legend>Input</legend>
+
+    <p>If you do not enter account information, a Brightcove sample account will be used.</p>
+
+    <p>Account id: <input id="account_id" type="text" value="" placeholder="1752604059001" /></p>
+
+    <p>Client id: <input id="client_id" type="text" size="60" value="" placeholder="c5d0a622-5479-46d8-8d8a-5f034b943fab" /></p>
+
+    <p>Client secret: <input id="client_secret" type="text" size="60" value="" placeholder="w7NQYu0vUloM4GYYy2SXAxrvyFpt8fwI35qAFZcS13-VIgs0itwKNsAwHOS80sOWK" /></p>
+
+    <p>Optional: retrieve videos with this tag: <input type="text" id="tag" value="" placeholder="foo" style="width:30%;display:inline;" /></p>
+
+    <p>Videos to retrieve: <select name="videoCount" id="videoCount">
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="500">500</option>
+        <option value="All">All</option>
+      </select></p>
+
+    <aside class="bcls-aside bcls-aside--warning">If you select <code>All</code>, be prepared to wait awhile!</aside>
+
+    <p><button class="bcls-button" id="makeReport">Generate the Report</button></p>
+  </fieldset>
+
+  <fieldset class="bcls-fieldset">
+    <legend>Log</legend>
+
+    <div id="logger" style="color:rgb(237, 104, 38)">
+      <p id="logText">Waiting for input...</p>
+    </div>
+
+    <p>Current API request</p>
+
+    <pre class="line-numbers">
+<code id="apiRequest" class="language-http">API request will appear here...</code></pre>
+  </fieldset>
+</section>
+
+<section id="csvDisplay" class="bcls-section">
+  <h2>CSV Data</h2>
+
+  <p>Copy and paste the data below into a an empty text file, and save it with a .csv extension. You can then open the file to view it in your spreadsheet application.</p>
+  <textarea name="csvData" id="csvData" class="bcls-code" style="height:10em;"></textarea>
+</section>
+<section id="tableDisplay" class="bcls-section">
+  <h2>Report table</h2>
+  <table id="reportTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Duration</th>
+        <th>Renditions</th>
+        <th>Created</th>
+        <th>Updated</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</section>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
